@@ -51,24 +51,20 @@ if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-define('PLUGIN_PATH', plugin_dir_path(__FILE__));
-define('PLUGIN_URL', plugin_dir_url(__FILE__));
-define('PLUGIN', plugin_basename(__FILE__));
 
-use Inc\Base\Activate;
-use Inc\Base\Deactivate;
-
+// activation  
 function activate_wecoder_plugin()
 {
-    Activate::activate();
+    Inc\Base\Activate::activate();
 }
+register_activation_hook(__FILE__, 'activate_wecoder_plugin');
+
+
+// deactivation
 function deactivate_wecoder_plugin()
 {
-    Deactivate::deactivate();
+    Inc\Base\Deactivate::deactivate();
 }
-
-// activation deactivation 
-register_activation_hook(__FILE__, 'activate_wecoder_plugin');
 register_deactivation_hook(__FILE__, 'deactivate_wecoder_plugin');
 
 
