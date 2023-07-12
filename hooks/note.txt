@@ -1,0 +1,17 @@
+1. Basic file create and plugin header 
+
+2. Plugin Security 
+
+3. Plugin class write 
+
+4. Plugin activation and deactivation hook 
+    - custom post type create [book]
+
+5. plugin uninstall file create 
+    - custom post data delete 
+
+6. plugin enqueue 
+
+
+
+10. Namespace a
