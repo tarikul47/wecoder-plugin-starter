@@ -31,6 +31,14 @@ class Admin extends BaseController
 
         $this->setSubPages();
 
+        $this->setSettings();
+
+        $this->setSections();
+
+        $this->setFields();
+
+
+
         $this->settings->AddPages($this->pages)->withSubPage('Dashabord')->addSubPages($this->subpages)->register();
     }
 
@@ -77,5 +85,66 @@ class Admin extends BaseController
                 'callback' => array($this->callbacks, 'adminWidget'),
             ],
         );
+    }
+
+    public function setSettings()
+    {
+        $args = array(
+            array(
+                'option_group' => 'wecoder_options_group',
+                'option_name' => 'text_example',
+                'callback' => array($this->callbacks, 'wecoderOptionsGroup'),
+            ),
+            array(
+                'option_group' => 'wecoder_options_group',
+                'option_name' => 'first_name',
+            ),
+        );
+
+        $this->settings->setSettings($args);
+    }
+
+    public function setSections()
+    {
+        $args = array(
+            array(
+                'id' => 'wecoder_admin_index',
+                'title' => 'Settings',
+                'callback' => array($this->callbacks, 'wecoderAdminSection'),
+                'page' => 'wecoder_plugin',
+            )
+        );
+
+        $this->settings->setSections($args);
+    }
+
+    public function setFields()
+    {
+        $args = array(
+            array(
+                'id' => 'text_example',
+                'title' => 'text Example',
+                'callback' => array($this->callbacks, 'wecoderTextExample'),
+                'page' => 'wecoder_plugin',
+                'section' => 'wecoder_admin_index',
+                'args' => array(
+                    'lable_for' => 'text_example',
+                    'class' => 'example-class'
+                ),
+            ),
+            array(
+                'id' => 'first_name',
+                'title' => 'First Name',
+                'callback' => array($this->callbacks, 'wecoderFirstName'),
+                'page' => 'wecoder_plugin',
+                'section' => 'wecoder_admin_index',
+                'args' => array(
+                    'lable_for' => 'first_name',
+                    'class' => 'example-class'
+                ),
+            ),
+        );
+
+        $this->settings->setFields($args);
     }
 }

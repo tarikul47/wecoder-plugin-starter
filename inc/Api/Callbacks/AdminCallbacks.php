@@ -19,7 +19,7 @@ class AdminCallbacks extends BaseController
     {
         return require_once("$this->plugin_path/templates/cpt.php");
     }
-    
+
     public function adminTaxonomy()
     {
         return require_once("$this->plugin_path/templates/taxonomy.php");
@@ -28,5 +28,26 @@ class AdminCallbacks extends BaseController
     public function adminWidget()
     {
         return require_once("$this->plugin_path/templates/widget.php");
+    }
+
+    public function wecoderOptionsGroup($input)
+    {
+        return $input;
+    }
+
+    public function wecoderAdminSection()
+    {
+        echo 'Check this beautiful section';
+    }
+
+    public function wecoderTextExample()
+    {
+        $value = esc_attr(get_option('text_example'));
+        echo '<input type="text" class="regular-text" name="text_example" value="' . $value . '" placeholder="Write Something Here"/>';
+    }
+    public function wecoderFirstName()
+    {
+        $value = esc_attr(get_option('first_name'));
+        echo '<input type="text" class="regular-text" name="first_name" value="' . $value . '" placeholder="First Name"/>';
     }
 }
