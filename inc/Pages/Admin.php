@@ -8,32 +8,49 @@ namespace Inc\Pages;
 
 use Inc\Api\SettingsApi;
 use \Inc\Base\BaseController;
+use Inc\Api\Callbacks\AdminCallbacks;
+
 
 class Admin extends BaseController
 {
     public $settings;
 
+    public $callbacks;
+
     public $pages = array();
+
     public $subpages = array();
 
-    public function __construct()
+    public function register()
     {
         $this->settings = new SettingsApi();
 
+        $this->callbacks = new AdminCallbacks();
+
+        $this->setPages();
+
+        $this->setSubPages();
+
+        $this->settings->AddPages($this->pages)->withSubPage('Dashabord')->addSubPages($this->subpages)->register();
+    }
+
+    public function setPages()
+    {
         $this->pages = array(
             [
                 'page_title' => 'Wecoder Plugin Page',
                 'menu_title' => 'Wecoder Menu',
                 'capability' => 'manage_options',
                 'menu_slug' => 'wecoder_plugin',
-                'callback' => function () {
-                    echo "Hello World";
-                },
+                'callback' => array($this->callbacks, 'adminDashboard'),
                 'icon_url' => '',
                 'position' => 50,
             ],
         );
+    }
 
+    public function setSubPages()
+    {
         $this->subpages = array(
             [
                 'parent_slug' => 'wecoder_plugin',
@@ -41,9 +58,7 @@ class Admin extends BaseController
                 'menu_title' => 'CPT',
                 'capability' => 'manage_options',
                 'menu_slug' => 'wecoder_cpt',
-                'callback' => function () {
-                    echo '<h1>CPT Manager</h1>';
-                },
+                'callback' => array($this->callbacks, 'adminCpt'),
             ],
             [
                 'parent_slug' => 'wecoder_plugin',
@@ -51,9 +66,7 @@ class Admin extends BaseController
                 'menu_title' => 'Taxonmies',
                 'capability' => 'manage_options',
                 'menu_slug' => 'wecoder_taxonmies',
-                'callback' => function () {
-                    echo '<h1>Taxonmies Manager</h1>';
-                },
+                'callback' => array($this->callbacks, 'adminTaxonomy'),
             ],
             [
                 'parent_slug' => 'wecoder_plugin',
@@ -61,15 +74,8 @@ class Admin extends BaseController
                 'menu_title' => 'Widgets',
                 'capability' => 'manage_options',
                 'menu_slug' => 'wecoder_widgets',
-                'callback' => function () {
-                    echo '<h1>Widgets Manager</h1>';
-                },
+                'callback' => array($this->callbacks, 'adminWidget'),
             ],
         );
-    }
-
-    public function register()
-    {
-        $this->settings->AddPages($this->pages)->withSubPage('Dashabord')->addSubPages($this->subpages)->register();
     }
 }

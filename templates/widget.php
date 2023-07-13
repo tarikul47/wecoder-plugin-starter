@@ -1,0 +1,1 @@
+<h1>Wecoder Plugin Manager - Widget page</h1>

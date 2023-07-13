@@ -1,0 +1,1 @@
+<h1>Wecoder Plugin Manager -CPT page</h1>

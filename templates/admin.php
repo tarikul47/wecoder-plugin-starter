@@ -1,1 +1,1 @@
-<h1>Wecoder Plugin </h1>
+<h1>Wecoder Plugin Manager - Main page</h1>

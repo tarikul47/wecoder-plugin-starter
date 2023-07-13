@@ -1,0 +1,1 @@
+<h1>Wecoder Plugin Manager - Taxonomy page</h1>
