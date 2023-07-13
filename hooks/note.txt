@@ -1,17 +1,46 @@
-1. Basic file create and plugin header 
+Page Functionality 
+--------------------------
 
-2. Plugin Security 
+1. Two class 
+    - Page >> Admin 
+    - API > SettingsAPI 
 
-3. Plugin class write 
+2. SettingsAPI class 
+    - varibale 
+        - admin_pages 
+        - admin_subpages
 
-4. Plugin activation and deactivation hook 
-    - custom post type create [book]
+    - Method = register  
+        - add_action = admin_menu [ need to check admin_pages has menu]
+        - admin_menu callback need to populate the page 
+        - check has menu or sub menu the foreach and populate admin and admin_subpages
 
-5. plugin uninstall file create 
-    - custom post data delete 
+    - Method = AddPage($page)
+        - $page assign with the admin_pages variable 
+        - return $this 
 
-6. plugin enqueue 
+    - Method = WithSubPage($title)
+        - create sub page from admin_page 1st page 
+        - then assign with admin_subpages 
+        - return $this
+
+    -Method = addSubPages($pages)
+        - takes all subpages 
+        - merge with admin_subpages
+        - return $this 
+
+    - method = addAdminmenu [ callback of admin_menu hook ]
+        - loop and populate the admin page and subpage 
+        - loop -> admin_pages and admin_subpages 
 
 
+3. Admin class 
 
-10. Namespace a
+    - Two varibale as well as 
+        - $pages 
+        - $subpages
+    
+    - Method = construct [ pages and subpage element ]
+
+    - method = register 
+        - $this->settings->AddPages($this->pages)->withSubPage('Dashabord')->addSubPages($this->subpages)->register();
