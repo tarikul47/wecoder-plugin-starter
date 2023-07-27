@@ -39,7 +39,7 @@ class AuthController extends BaseController
                 'page_title' => 'Login Manager',
                 'menu_title' => 'Login Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_auth',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

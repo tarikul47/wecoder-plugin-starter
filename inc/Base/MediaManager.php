@@ -39,7 +39,7 @@ class MediaManager extends BaseController
                 'page_title' => 'Media Manager',
                 'menu_title' => 'Media Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_media_manager',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

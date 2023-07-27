@@ -38,7 +38,7 @@ class MembershipController extends BaseController
                 'page_title' => 'Membership Manager',
                 'menu_title' => 'Membership Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_membership',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

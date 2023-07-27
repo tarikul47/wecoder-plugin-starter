@@ -38,7 +38,7 @@ class TestimonialController extends BaseController
                 'page_title' => 'Testimonial Manager',
                 'menu_title' => 'Testimonial Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_testimonial',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

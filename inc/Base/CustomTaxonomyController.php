@@ -38,7 +38,7 @@ class CustomTaxonomyController extends BaseController
                 'page_title' => 'Custom Taxonomies',
                 'menu_title' => 'Taxonomy Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_taxonomy',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

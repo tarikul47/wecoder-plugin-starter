@@ -38,7 +38,7 @@ class TemplateController extends BaseController
                 'page_title' => 'Templates Manager',
                 'menu_title' => 'Templates Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_template',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

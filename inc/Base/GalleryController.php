@@ -38,7 +38,7 @@ class GalleryController extends BaseController
                 'page_title' => 'Gallery Manager',
                 'menu_title' => 'Gallery Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_gallery',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );

@@ -39,7 +39,7 @@ class WidgetController extends BaseController
                 'page_title' => 'Chat Manager',
                 'menu_title' => 'Chat Manager',
                 'capability' => 'manage_options',
-                'menu_slug' => 'wecoder_cpt',
+                'menu_slug' => 'wecoder_widget',
                 'callback' => array($this->callbacks, 'adminCpt'),
             ],
         );
